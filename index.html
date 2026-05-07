@@ -2,32 +2,37 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <title>CarsMarket - Твоята кола</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoMarket</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">CarsMarket</div>
-        <div class="search-container">
-            <input type="text" id="brand-search" placeholder="Търси марка..." onkeyup="filterCars()">
-        </div>
-    </nav>
 
-    <header class="hero">
-        <h1>Добре дошли в нашия пазар за коли</h1>
-        <p>Проект на Монти и Влади.</p>
-    </header>
+<header>
+    <h1>🚗 AutoMarket</h1>
+</header>
 
-    <main id="car-list" class="container"></main>
-
-    <div id="carModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modal-details"></div>
-            <button class="contact-btn" style="margin-top:20px;" onclick="closeModal()">Затвори</button>
-        </div>
+<div class="filter-section">
+    <input type="text" id="search" placeholder="Търси марка или модел..." onkeyup="filterCars()">
+    <div style="margin: 10px 0;">
+        <label>До: <span id="priceValue">400,000</span> €</label><br>
+        <input type="range" id="priceRange" min="20000" max="400000" step="5000" value="400000" oninput="filterCars()" style="width:100%">
     </div>
+    <div class="nav-buttons">
+        <button class="btn-nav" onclick="showAll()">Всички</button>
+        <button class="btn-fav" onclick="showFavorites()">❤ Любими</button>
+    </div>
+</div>
 
-    <script src="/static/script.js"></script>
+<div id="cars-container"></div>
+
+<div id="carModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-details"></div>
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
 </body>
 </html>
