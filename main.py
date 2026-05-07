@@ -1,21 +1,20 @@
 from flask import Flask, render_template, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='.')
 
-# Примерни данни (вместо истинска база данни за начало)
 cars = [
-    {"id": 1, "brand": "BMW", "model": "320d", "price": 15000},
-    {"id": 2, "brand": "Audi", "model": "A4", "price": 18000},
-    {"id": 3, "brand": "VW", "model": "Golf 7", "price": 12000}
+    {"id": 1, "brand": "BMW", "model": "M3", "price": "45,000", "image": "https://via.placeholder.com/200"},
+    {"id": 2, "brand": "Audi", "model": "RS6", "price": "120,000", "image": "https://via.placeholder.com/200"},
+    {"id": 3, "brand": "Mercedes", "model": "C63", "price": "55,000", "image": "https://via.placeholder.com/200"},
+    {"id": 4, "brand": "Volkswagen", "model": "Golf 8", "price": "35,000", "image": "https://via.placeholder.com/200"}
 ]
 
 @app.route('/')
 def home():
-    return "Добре дошли в CarsBG API!"
+    return render_template('index.html')
 
 @app.route('/api/cars')
 def get_cars():
-    # Тази функция връща списъка с коли в JSON формат
     return jsonify(cars)
 
 if __name__ == '__main__':
