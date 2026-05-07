@@ -3,24 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>CarsMarket - Твоята кола</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <nav>
         <div class="logo">CarsMarket</div>
         <div class="search-container">
-            <input type="text" id="brand-search" placeholder="Търси марка (напр. BMW)..." onkeyup="filterCars()">
+            <input type="text" id="brand-search" placeholder="Търси марка..." onkeyup="filterCars()">
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Добре дошли в уникалния ни пазар за коли</h1>
-        <p>Намери своята мечтана кола със Симона и екип.</p>
+        <h1>Добре дошли в нашия пазар за коли</h1>
+        <p>Проект на Монти и Влади.</p>
     </header>
 
-    <main id="car-list" class="container">
-        </main>
+    <main id="car-list" class="container"></main>
 
-    <script src="script.js"></script>
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-details"></div>
+            <button class="contact-btn" style="margin-top:20px;" onclick="closeModal()">Затвори</button>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
 </body>
 </html>
